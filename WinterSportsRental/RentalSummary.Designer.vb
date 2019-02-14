@@ -30,26 +30,26 @@ Partial Class frmSummary
         Me.lblReturn = New System.Windows.Forms.Label()
         Me.lblDuration = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label10 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.Label14 = New System.Windows.Forms.Label()
-        Me.Label15 = New System.Windows.Forms.Label()
-        Me.Label16 = New System.Windows.Forms.Label()
-        Me.Label17 = New System.Windows.Forms.Label()
+        Me.lblSubTotal = New System.Windows.Forms.Label()
+        Me.lblTax = New System.Windows.Forms.Label()
+        Me.lblInsurance = New System.Windows.Forms.Label()
+        Me.lblBalanceDue = New System.Windows.Forms.Label()
+        Me.lblDeposit = New System.Windows.Forms.Label()
         Me.lstEquip_Rented = New System.Windows.Forms.ListBox()
+        Me.btnBack = New System.Windows.Forms.Button()
+        Me.btnExit = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(379, 32)
+        Me.Label1.Location = New System.Drawing.Point(251, 19)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(175, 30)
         Me.Label1.TabIndex = 0
@@ -58,7 +58,7 @@ Partial Class frmSummary
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(105, 123)
+        Me.Label2.Location = New System.Drawing.Point(100, 90)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(69, 17)
         Me.Label2.TabIndex = 1
@@ -67,7 +67,7 @@ Partial Class frmSummary
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(336, 123)
+        Me.Label3.Location = New System.Drawing.Point(276, 90)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(61, 17)
         Me.Label3.TabIndex = 2
@@ -76,7 +76,7 @@ Partial Class frmSummary
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(574, 123)
+        Me.Label4.Location = New System.Drawing.Point(454, 90)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(80, 17)
         Me.Label4.TabIndex = 3
@@ -85,7 +85,7 @@ Partial Class frmSummary
         'lblStDate
         '
         Me.lblStDate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.lblStDate.Location = New System.Drawing.Point(108, 140)
+        Me.lblStDate.Location = New System.Drawing.Point(103, 107)
         Me.lblStDate.Name = "lblStDate"
         Me.lblStDate.Size = New System.Drawing.Size(122, 33)
         Me.lblStDate.TabIndex = 4
@@ -93,7 +93,7 @@ Partial Class frmSummary
         'lblReturn
         '
         Me.lblReturn.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.lblReturn.Location = New System.Drawing.Point(577, 140)
+        Me.lblReturn.Location = New System.Drawing.Point(457, 107)
         Me.lblReturn.Name = "lblReturn"
         Me.lblReturn.Size = New System.Drawing.Size(122, 33)
         Me.lblReturn.TabIndex = 5
@@ -101,7 +101,7 @@ Partial Class frmSummary
         'lblDuration
         '
         Me.lblDuration.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.lblDuration.Location = New System.Drawing.Point(339, 140)
+        Me.lblDuration.Location = New System.Drawing.Point(279, 107)
         Me.lblDuration.Name = "lblDuration"
         Me.lblDuration.Size = New System.Drawing.Size(122, 33)
         Me.lblDuration.TabIndex = 6
@@ -109,25 +109,16 @@ Partial Class frmSummary
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(105, 190)
+        Me.Label5.Location = New System.Drawing.Point(98, 163)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(118, 17)
         Me.Label5.TabIndex = 8
         Me.Label5.Text = "Equipment Rented:"
         '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(661, 529)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(64, 17)
-        Me.Label10.TabIndex = 15
-        Me.Label10.Text = "Due Back:"
-        '
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(669, 452)
+        Me.Label9.Location = New System.Drawing.Point(351, 453)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(56, 17)
         Me.Label9.TabIndex = 14
@@ -136,7 +127,7 @@ Partial Class frmSummary
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(659, 412)
+        Me.Label8.Location = New System.Drawing.Point(341, 413)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(66, 17)
         Me.Label8.TabIndex = 13
@@ -145,7 +136,7 @@ Partial Class frmSummary
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(695, 372)
+        Me.Label7.Location = New System.Drawing.Point(377, 373)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(30, 17)
         Me.Label7.TabIndex = 12
@@ -154,7 +145,7 @@ Partial Class frmSummary
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(660, 334)
+        Me.Label6.Location = New System.Drawing.Point(342, 335)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(65, 17)
         Me.Label6.TabIndex = 11
@@ -163,82 +154,98 @@ Partial Class frmSummary
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(643, 489)
+        Me.Label11.Location = New System.Drawing.Point(325, 490)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(82, 17)
         Me.Label11.TabIndex = 10
         Me.Label11.Text = "Balance Due:"
         '
-        'Label12
+        'lblSubTotal
         '
-        Me.Label12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label12.Location = New System.Drawing.Point(775, 323)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(122, 28)
-        Me.Label12.TabIndex = 16
+        Me.lblSubTotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lblSubTotal.Location = New System.Drawing.Point(457, 324)
+        Me.lblSubTotal.Name = "lblSubTotal"
+        Me.lblSubTotal.Size = New System.Drawing.Size(122, 28)
+        Me.lblSubTotal.TabIndex = 16
+        Me.lblSubTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'Label13
+        'lblTax
         '
-        Me.Label13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label13.Location = New System.Drawing.Point(775, 361)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(122, 28)
-        Me.Label13.TabIndex = 17
+        Me.lblTax.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lblTax.Location = New System.Drawing.Point(457, 362)
+        Me.lblTax.Name = "lblTax"
+        Me.lblTax.Size = New System.Drawing.Size(122, 28)
+        Me.lblTax.TabIndex = 17
+        Me.lblTax.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'Label14
+        'lblInsurance
         '
-        Me.Label14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label14.Location = New System.Drawing.Point(775, 401)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(122, 28)
-        Me.Label14.TabIndex = 18
+        Me.lblInsurance.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lblInsurance.Location = New System.Drawing.Point(457, 402)
+        Me.lblInsurance.Name = "lblInsurance"
+        Me.lblInsurance.Size = New System.Drawing.Size(122, 28)
+        Me.lblInsurance.TabIndex = 18
+        Me.lblInsurance.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'Label15
+        'lblBalanceDue
         '
-        Me.Label15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label15.Location = New System.Drawing.Point(775, 518)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(122, 28)
-        Me.Label15.TabIndex = 19
+        Me.lblBalanceDue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lblBalanceDue.Location = New System.Drawing.Point(457, 479)
+        Me.lblBalanceDue.Name = "lblBalanceDue"
+        Me.lblBalanceDue.Size = New System.Drawing.Size(122, 28)
+        Me.lblBalanceDue.TabIndex = 20
+        Me.lblBalanceDue.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'Label16
+        'lblDeposit
         '
-        Me.Label16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label16.Location = New System.Drawing.Point(775, 478)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(122, 28)
-        Me.Label16.TabIndex = 20
-        '
-        'Label17
-        '
-        Me.Label17.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label17.Location = New System.Drawing.Point(775, 441)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(122, 28)
-        Me.Label17.TabIndex = 21
+        Me.lblDeposit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lblDeposit.Location = New System.Drawing.Point(457, 442)
+        Me.lblDeposit.Name = "lblDeposit"
+        Me.lblDeposit.Size = New System.Drawing.Size(122, 28)
+        Me.lblDeposit.TabIndex = 21
+        Me.lblDeposit.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'lstEquip_Rented
         '
         Me.lstEquip_Rented.FormattingEnabled = True
         Me.lstEquip_Rented.ItemHeight = 17
-        Me.lstEquip_Rented.Location = New System.Drawing.Point(110, 210)
+        Me.lstEquip_Rented.Location = New System.Drawing.Point(103, 183)
         Me.lstEquip_Rented.Name = "lstEquip_Rented"
-        Me.lstEquip_Rented.Size = New System.Drawing.Size(351, 89)
+        Me.lstEquip_Rented.SelectionMode = System.Windows.Forms.SelectionMode.None
+        Me.lstEquip_Rented.Size = New System.Drawing.Size(298, 123)
         Me.lstEquip_Rented.TabIndex = 22
+        '
+        'btnBack
+        '
+        Me.btnBack.Location = New System.Drawing.Point(423, 544)
+        Me.btnBack.Name = "btnBack"
+        Me.btnBack.Size = New System.Drawing.Size(75, 32)
+        Me.btnBack.TabIndex = 23
+        Me.btnBack.Text = "&Back"
+        Me.btnBack.UseVisualStyleBackColor = True
+        '
+        'btnExit
+        '
+        Me.btnExit.Location = New System.Drawing.Point(504, 544)
+        Me.btnExit.Name = "btnExit"
+        Me.btnExit.Size = New System.Drawing.Size(75, 32)
+        Me.btnExit.TabIndex = 24
+        Me.btnExit.Text = "E&xit"
+        Me.btnExit.UseVisualStyleBackColor = True
         '
         'frmSummary
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(933, 588)
+        Me.ClientSize = New System.Drawing.Size(676, 603)
+        Me.Controls.Add(Me.btnExit)
+        Me.Controls.Add(Me.btnBack)
         Me.Controls.Add(Me.lstEquip_Rented)
-        Me.Controls.Add(Me.Label17)
-        Me.Controls.Add(Me.Label16)
-        Me.Controls.Add(Me.Label15)
-        Me.Controls.Add(Me.Label14)
-        Me.Controls.Add(Me.Label13)
-        Me.Controls.Add(Me.Label12)
-        Me.Controls.Add(Me.Label10)
+        Me.Controls.Add(Me.lblDeposit)
+        Me.Controls.Add(Me.lblBalanceDue)
+        Me.Controls.Add(Me.lblInsurance)
+        Me.Controls.Add(Me.lblTax)
+        Me.Controls.Add(Me.lblSubTotal)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label7)
@@ -269,17 +276,17 @@ Partial Class frmSummary
     Friend WithEvents lblReturn As Label
     Friend WithEvents lblDuration As Label
     Friend WithEvents Label5 As Label
-    Friend WithEvents Label10 As Label
     Friend WithEvents Label9 As Label
     Friend WithEvents Label8 As Label
     Friend WithEvents Label7 As Label
     Friend WithEvents Label6 As Label
     Friend WithEvents Label11 As Label
-    Friend WithEvents Label12 As Label
-    Friend WithEvents Label13 As Label
-    Friend WithEvents Label14 As Label
-    Friend WithEvents Label15 As Label
-    Friend WithEvents Label16 As Label
-    Friend WithEvents Label17 As Label
+    Friend WithEvents lblSubTotal As Label
+    Friend WithEvents lblTax As Label
+    Friend WithEvents lblInsurance As Label
+    Friend WithEvents lblBalanceDue As Label
+    Friend WithEvents lblDeposit As Label
     Friend WithEvents lstEquip_Rented As ListBox
+    Friend WithEvents btnBack As Button
+    Friend WithEvents btnExit As Button
 End Class

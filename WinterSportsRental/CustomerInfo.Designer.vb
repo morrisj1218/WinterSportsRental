@@ -38,12 +38,13 @@ Partial Class frmCustomer
         Me.txtZip = New System.Windows.Forms.TextBox()
         Me.txtState = New System.Windows.Forms.TextBox()
         Me.txtCardNum = New System.Windows.Forms.TextBox()
+        Me.Label8 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(252, 73)
+        Me.Label1.Location = New System.Drawing.Point(104, 79)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(46, 17)
         Me.Label1.TabIndex = 0
@@ -52,7 +53,7 @@ Partial Class frmCustomer
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(252, 146)
+        Me.Label2.Location = New System.Drawing.Point(104, 152)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(59, 17)
         Me.Label2.TabIndex = 1
@@ -61,7 +62,7 @@ Partial Class frmCustomer
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(252, 219)
+        Me.Label3.Location = New System.Drawing.Point(104, 225)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(32, 17)
         Me.Label3.TabIndex = 2
@@ -70,7 +71,7 @@ Partial Class frmCustomer
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(393, 219)
+        Me.Label4.Location = New System.Drawing.Point(245, 225)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(40, 17)
         Me.Label4.TabIndex = 3
@@ -79,7 +80,7 @@ Partial Class frmCustomer
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(542, 219)
+        Me.Label5.Location = New System.Drawing.Point(394, 225)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(29, 17)
         Me.Label5.TabIndex = 4
@@ -88,7 +89,7 @@ Partial Class frmCustomer
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(259, 284)
+        Me.Label6.Location = New System.Drawing.Point(111, 290)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(47, 17)
         Me.Label6.TabIndex = 5
@@ -97,7 +98,7 @@ Partial Class frmCustomer
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(259, 350)
+        Me.Label7.Location = New System.Drawing.Point(111, 356)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(130, 17)
         Me.Label7.TabIndex = 6
@@ -105,7 +106,7 @@ Partial Class frmCustomer
         '
         'btnCheckout
         '
-        Me.btnCheckout.Location = New System.Drawing.Point(681, 530)
+        Me.btnCheckout.Location = New System.Drawing.Point(317, 450)
         Me.btnCheckout.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnCheckout.Name = "btnCheckout"
         Me.btnCheckout.Size = New System.Drawing.Size(87, 30)
@@ -115,7 +116,7 @@ Partial Class frmCustomer
         '
         'btnBack
         '
-        Me.btnBack.Location = New System.Drawing.Point(792, 530)
+        Me.btnBack.Location = New System.Drawing.Point(410, 450)
         Me.btnBack.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnBack.Name = "btnBack"
         Me.btnBack.Size = New System.Drawing.Size(87, 30)
@@ -125,58 +126,69 @@ Partial Class frmCustomer
         '
         'txtName
         '
-        Me.txtName.Location = New System.Drawing.Point(255, 93)
+        Me.txtName.Location = New System.Drawing.Point(107, 99)
         Me.txtName.Name = "txtName"
         Me.txtName.Size = New System.Drawing.Size(100, 25)
         Me.txtName.TabIndex = 9
         '
         'txtAddress
         '
-        Me.txtAddress.Location = New System.Drawing.Point(255, 166)
+        Me.txtAddress.Location = New System.Drawing.Point(107, 172)
         Me.txtAddress.Name = "txtAddress"
         Me.txtAddress.Size = New System.Drawing.Size(100, 25)
         Me.txtAddress.TabIndex = 10
         '
         'txtCity
         '
-        Me.txtCity.Location = New System.Drawing.Point(255, 239)
+        Me.txtCity.Location = New System.Drawing.Point(107, 245)
         Me.txtCity.Name = "txtCity"
         Me.txtCity.Size = New System.Drawing.Size(100, 25)
         Me.txtCity.TabIndex = 11
         '
         'txtPhone
         '
-        Me.txtPhone.Location = New System.Drawing.Point(262, 304)
+        Me.txtPhone.Location = New System.Drawing.Point(114, 310)
         Me.txtPhone.Name = "txtPhone"
         Me.txtPhone.Size = New System.Drawing.Size(100, 25)
         Me.txtPhone.TabIndex = 12
         '
         'txtZip
         '
-        Me.txtZip.Location = New System.Drawing.Point(545, 239)
+        Me.txtZip.Location = New System.Drawing.Point(397, 245)
         Me.txtZip.Name = "txtZip"
         Me.txtZip.Size = New System.Drawing.Size(100, 25)
         Me.txtZip.TabIndex = 13
         '
         'txtState
         '
-        Me.txtState.Location = New System.Drawing.Point(396, 239)
+        Me.txtState.Location = New System.Drawing.Point(248, 245)
         Me.txtState.Name = "txtState"
         Me.txtState.Size = New System.Drawing.Size(100, 25)
         Me.txtState.TabIndex = 14
         '
         'txtCardNum
         '
-        Me.txtCardNum.Location = New System.Drawing.Point(262, 370)
+        Me.txtCardNum.Location = New System.Drawing.Point(114, 376)
         Me.txtCardNum.Name = "txtCardNum"
         Me.txtCardNum.Size = New System.Drawing.Size(297, 25)
         Me.txtCardNum.TabIndex = 15
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(102, 19)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(309, 30)
+        Me.Label8.TabIndex = 16
+        Me.Label8.Text = "Customer Making Reservation"
         '
         'frmCustomer
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(933, 588)
+        Me.ClientSize = New System.Drawing.Size(599, 535)
+        Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.txtCardNum)
         Me.Controls.Add(Me.txtState)
         Me.Controls.Add(Me.txtZip)
@@ -218,4 +230,5 @@ Partial Class frmCustomer
     Friend WithEvents txtZip As TextBox
     Friend WithEvents txtState As TextBox
     Friend WithEvents txtCardNum As TextBox
+    Friend WithEvents Label8 As Label
 End Class
