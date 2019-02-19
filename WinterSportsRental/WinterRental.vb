@@ -16,7 +16,7 @@ Public Class frmRental
                                        {24.99, 49.98, 74.97, 149.94, 299.88},
                                        {16.99, 33.98, 50.97, 101.94, 203.88},
                                        {15.99, 31.98, 47.97, 95.94, 191.88},
-                                       {10.99, 21.98, 32.97, 65.94, 191.88}}
+                                       {10.99, 21.98, 32.97, 65.94, 131.88}}
 
     Dim equipment() As String = {"Sport Skis", "Beginner Skis", "Youth Skis", "Snowboard",
                                      "Adult Boots", "Youth Boots", "Adult Helmet", "Youth Helmet"}
