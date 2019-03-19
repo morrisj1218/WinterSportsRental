@@ -25,7 +25,7 @@ Option Explicit On
 Partial Public Class WinterSportsDataSet
     Inherits Global.System.Data.DataSet
     
-    Private tableCustInfo As CustInfoDataTable
+    Private tableCustomers As CustomersDataTable
     
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
@@ -56,8 +56,8 @@ Partial Public Class WinterSportsDataSet
         If (Me.DetermineSchemaSerializationMode(info, context) = Global.System.Data.SchemaSerializationMode.IncludeSchema) Then
             Dim ds As Global.System.Data.DataSet = New Global.System.Data.DataSet()
             ds.ReadXmlSchema(New Global.System.Xml.XmlTextReader(New Global.System.IO.StringReader(strSchema)))
-            If (Not (ds.Tables("CustInfo")) Is Nothing) Then
-                MyBase.Tables.Add(New CustInfoDataTable(ds.Tables("CustInfo")))
+            If (Not (ds.Tables("Customers")) Is Nothing) Then
+                MyBase.Tables.Add(New CustomersDataTable(ds.Tables("Customers")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -80,9 +80,9 @@ Partial Public Class WinterSportsDataSet
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
      Global.System.ComponentModel.Browsable(false),  _
      Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
-    Public ReadOnly Property CustInfo() As CustInfoDataTable
+    Public ReadOnly Property Customers() As CustomersDataTable
         Get
-            Return Me.tableCustInfo
+            Return Me.tableCustomers
         End Get
     End Property
     
@@ -153,8 +153,8 @@ Partial Public Class WinterSportsDataSet
             Me.Reset
             Dim ds As Global.System.Data.DataSet = New Global.System.Data.DataSet()
             ds.ReadXml(reader)
-            If (Not (ds.Tables("CustInfo")) Is Nothing) Then
-                MyBase.Tables.Add(New CustInfoDataTable(ds.Tables("CustInfo")))
+            If (Not (ds.Tables("Customers")) Is Nothing) Then
+                MyBase.Tables.Add(New CustomersDataTable(ds.Tables("Customers")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -188,10 +188,10 @@ Partial Public Class WinterSportsDataSet
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
     Friend Overloads Sub InitVars(ByVal initTable As Boolean)
-        Me.tableCustInfo = CType(MyBase.Tables("CustInfo"),CustInfoDataTable)
+        Me.tableCustomers = CType(MyBase.Tables("Customers"),CustomersDataTable)
         If (initTable = true) Then
-            If (Not (Me.tableCustInfo) Is Nothing) Then
-                Me.tableCustInfo.InitVars
+            If (Not (Me.tableCustomers) Is Nothing) Then
+                Me.tableCustomers.InitVars
             End If
         End If
     End Sub
@@ -204,13 +204,13 @@ Partial Public Class WinterSportsDataSet
         Me.Namespace = "http://tempuri.org/WinterSportsDataSet.xsd"
         Me.EnforceConstraints = true
         Me.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
-        Me.tableCustInfo = New CustInfoDataTable()
-        MyBase.Tables.Add(Me.tableCustInfo)
+        Me.tableCustomers = New CustomersDataTable()
+        MyBase.Tables.Add(Me.tableCustomers)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-    Private Function ShouldSerializeCustInfo() As Boolean
+    Private Function ShouldSerializeCustomers() As Boolean
         Return false
     End Function
     
@@ -273,15 +273,15 @@ Partial Public Class WinterSportsDataSet
     End Function
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-    Public Delegate Sub CustInfoRowChangeEventHandler(ByVal sender As Object, ByVal e As CustInfoRowChangeEvent)
+    Public Delegate Sub CustomersRowChangeEventHandler(ByVal sender As Object, ByVal e As CustomersRowChangeEvent)
     
     '''<summary>
     '''Represents the strongly named DataTable class.
     '''</summary>
     <Global.System.Serializable(),  _
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
-    Partial Public Class CustInfoDataTable
-        Inherits Global.System.Data.TypedTableBase(Of CustInfoRow)
+    Partial Public Class CustomersDataTable
+        Inherits Global.System.Data.TypedTableBase(Of CustomersRow)
         
         Private columnCustID As Global.System.Data.DataColumn
         
@@ -303,7 +303,7 @@ Partial Public Class WinterSportsDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub New()
             MyBase.New
-            Me.TableName = "CustInfo"
+            Me.TableName = "Customers"
             Me.BeginInit
             Me.InitClass
             Me.EndInit
@@ -409,50 +409,50 @@ Partial Public Class WinterSportsDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Default ReadOnly Property Item(ByVal index As Integer) As CustInfoRow
+        Public Default ReadOnly Property Item(ByVal index As Integer) As CustomersRow
             Get
-                Return CType(Me.Rows(index),CustInfoRow)
+                Return CType(Me.Rows(index),CustomersRow)
             End Get
         End Property
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Event CustInfoRowChanging As CustInfoRowChangeEventHandler
+        Public Event CustomersRowChanging As CustomersRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Event CustInfoRowChanged As CustInfoRowChangeEventHandler
+        Public Event CustomersRowChanged As CustomersRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Event CustInfoRowDeleting As CustInfoRowChangeEventHandler
+        Public Event CustomersRowDeleting As CustomersRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Event CustInfoRowDeleted As CustInfoRowChangeEventHandler
+        Public Event CustomersRowDeleted As CustomersRowChangeEventHandler
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overloads Sub AddCustInfoRow(ByVal row As CustInfoRow)
+        Public Overloads Sub AddCustomersRow(ByVal row As CustomersRow)
             Me.Rows.Add(row)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overloads Function AddCustInfoRow(ByVal FirstName As String, ByVal LastName As String, ByVal StreetAddress As String, ByVal City As String, ByVal State As String, ByVal ZipCode As Integer, ByVal Phone As String) As CustInfoRow
-            Dim rowCustInfoRow As CustInfoRow = CType(Me.NewRow,CustInfoRow)
+        Public Overloads Function AddCustomersRow(ByVal FirstName As String, ByVal LastName As String, ByVal StreetAddress As String, ByVal City As String, ByVal State As String, ByVal ZipCode As String, ByVal Phone As String) As CustomersRow
+            Dim rowCustomersRow As CustomersRow = CType(Me.NewRow,CustomersRow)
             Dim columnValuesArray() As Object = New Object() {Nothing, FirstName, LastName, StreetAddress, City, State, ZipCode, Phone}
-            rowCustInfoRow.ItemArray = columnValuesArray
-            Me.Rows.Add(rowCustInfoRow)
-            Return rowCustInfoRow
+            rowCustomersRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowCustomersRow)
+            Return rowCustomersRow
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function FindByCustID(ByVal CustID As Integer) As CustInfoRow
-            Return CType(Me.Rows.Find(New Object() {CustID}),CustInfoRow)
+        Public Function FindByCustID(ByVal CustID As Integer) As CustomersRow
+            Return CType(Me.Rows.Find(New Object() {CustID}),CustomersRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Overrides Function Clone() As Global.System.Data.DataTable
-            Dim cln As CustInfoDataTable = CType(MyBase.Clone,CustInfoDataTable)
+            Dim cln As CustomersDataTable = CType(MyBase.Clone,CustomersDataTable)
             cln.InitVars
             Return cln
         End Function
@@ -460,7 +460,7 @@ Partial Public Class WinterSportsDataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
-            Return New CustInfoDataTable()
+            Return New CustomersDataTable()
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -491,7 +491,7 @@ Partial Public Class WinterSportsDataSet
             MyBase.Columns.Add(Me.columnCity)
             Me.columnState = New Global.System.Data.DataColumn("State", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnState)
-            Me.columnZipCode = New Global.System.Data.DataColumn("ZipCode", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnZipCode = New Global.System.Data.DataColumn("ZipCode", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnZipCode)
             Me.columnPhone = New Global.System.Data.DataColumn("Phone", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnPhone)
@@ -505,42 +505,43 @@ Partial Public Class WinterSportsDataSet
             Me.columnFirstName.AllowDBNull = false
             Me.columnFirstName.MaxLength = 10
             Me.columnLastName.AllowDBNull = false
-            Me.columnLastName.MaxLength = 10
+            Me.columnLastName.MaxLength = 15
             Me.columnStreetAddress.AllowDBNull = false
-            Me.columnStreetAddress.MaxLength = 40
+            Me.columnStreetAddress.MaxLength = 50
             Me.columnCity.AllowDBNull = false
             Me.columnCity.MaxLength = 20
             Me.columnState.AllowDBNull = false
             Me.columnState.MaxLength = 2
             Me.columnZipCode.AllowDBNull = false
+            Me.columnZipCode.MaxLength = 5
             Me.columnPhone.AllowDBNull = false
-            Me.columnPhone.MaxLength = 1
+            Me.columnPhone.MaxLength = 12
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function NewCustInfoRow() As CustInfoRow
-            Return CType(Me.NewRow,CustInfoRow)
+        Public Function NewCustomersRow() As CustomersRow
+            Return CType(Me.NewRow,CustomersRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
-            Return New CustInfoRow(builder)
+            Return New CustomersRow(builder)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Protected Overrides Function GetRowType() As Global.System.Type
-            Return GetType(CustInfoRow)
+            Return GetType(CustomersRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanged(e)
-            If (Not (Me.CustInfoRowChangedEvent) Is Nothing) Then
-                RaiseEvent CustInfoRowChanged(Me, New CustInfoRowChangeEvent(CType(e.Row,CustInfoRow), e.Action))
+            If (Not (Me.CustomersRowChangedEvent) Is Nothing) Then
+                RaiseEvent CustomersRowChanged(Me, New CustomersRowChangeEvent(CType(e.Row,CustomersRow), e.Action))
             End If
         End Sub
         
@@ -548,8 +549,8 @@ Partial Public Class WinterSportsDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanging(e)
-            If (Not (Me.CustInfoRowChangingEvent) Is Nothing) Then
-                RaiseEvent CustInfoRowChanging(Me, New CustInfoRowChangeEvent(CType(e.Row,CustInfoRow), e.Action))
+            If (Not (Me.CustomersRowChangingEvent) Is Nothing) Then
+                RaiseEvent CustomersRowChanging(Me, New CustomersRowChangeEvent(CType(e.Row,CustomersRow), e.Action))
             End If
         End Sub
         
@@ -557,8 +558,8 @@ Partial Public Class WinterSportsDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleted(e)
-            If (Not (Me.CustInfoRowDeletedEvent) Is Nothing) Then
-                RaiseEvent CustInfoRowDeleted(Me, New CustInfoRowChangeEvent(CType(e.Row,CustInfoRow), e.Action))
+            If (Not (Me.CustomersRowDeletedEvent) Is Nothing) Then
+                RaiseEvent CustomersRowDeleted(Me, New CustomersRowChangeEvent(CType(e.Row,CustomersRow), e.Action))
             End If
         End Sub
         
@@ -566,14 +567,14 @@ Partial Public Class WinterSportsDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleting(e)
-            If (Not (Me.CustInfoRowDeletingEvent) Is Nothing) Then
-                RaiseEvent CustInfoRowDeleting(Me, New CustInfoRowChangeEvent(CType(e.Row,CustInfoRow), e.Action))
+            If (Not (Me.CustomersRowDeletingEvent) Is Nothing) Then
+                RaiseEvent CustomersRowDeleting(Me, New CustomersRowChangeEvent(CType(e.Row,CustomersRow), e.Action))
             End If
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub RemoveCustInfoRow(ByVal row As CustInfoRow)
+        Public Sub RemoveCustomersRow(ByVal row As CustomersRow)
             Me.Rows.Remove(row)
         End Sub
         
@@ -600,7 +601,7 @@ Partial Public Class WinterSportsDataSet
             type.Attributes.Add(attribute1)
             Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
             attribute2.Name = "tableTypeName"
-            attribute2.FixedValue = "CustInfoDataTable"
+            attribute2.FixedValue = "CustomersDataTable"
             type.Attributes.Add(attribute2)
             type.Particle = sequence
             Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
@@ -647,26 +648,26 @@ Partial Public Class WinterSportsDataSet
     '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
-    Partial Public Class CustInfoRow
+    Partial Public Class CustomersRow
         Inherits Global.System.Data.DataRow
         
-        Private tableCustInfo As CustInfoDataTable
+        Private tableCustomers As CustomersDataTable
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
             MyBase.New(rb)
-            Me.tableCustInfo = CType(Me.Table,CustInfoDataTable)
+            Me.tableCustomers = CType(Me.Table,CustomersDataTable)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Property CustID() As Integer
             Get
-                Return CType(Me(Me.tableCustInfo.CustIDColumn),Integer)
+                Return CType(Me(Me.tableCustomers.CustIDColumn),Integer)
             End Get
             Set
-                Me(Me.tableCustInfo.CustIDColumn) = value
+                Me(Me.tableCustomers.CustIDColumn) = value
             End Set
         End Property
         
@@ -674,10 +675,10 @@ Partial Public Class WinterSportsDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Property FirstName() As String
             Get
-                Return CType(Me(Me.tableCustInfo.FirstNameColumn),String)
+                Return CType(Me(Me.tableCustomers.FirstNameColumn),String)
             End Get
             Set
-                Me(Me.tableCustInfo.FirstNameColumn) = value
+                Me(Me.tableCustomers.FirstNameColumn) = value
             End Set
         End Property
         
@@ -685,10 +686,10 @@ Partial Public Class WinterSportsDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Property LastName() As String
             Get
-                Return CType(Me(Me.tableCustInfo.LastNameColumn),String)
+                Return CType(Me(Me.tableCustomers.LastNameColumn),String)
             End Get
             Set
-                Me(Me.tableCustInfo.LastNameColumn) = value
+                Me(Me.tableCustomers.LastNameColumn) = value
             End Set
         End Property
         
@@ -696,10 +697,10 @@ Partial Public Class WinterSportsDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Property StreetAddress() As String
             Get
-                Return CType(Me(Me.tableCustInfo.StreetAddressColumn),String)
+                Return CType(Me(Me.tableCustomers.StreetAddressColumn),String)
             End Get
             Set
-                Me(Me.tableCustInfo.StreetAddressColumn) = value
+                Me(Me.tableCustomers.StreetAddressColumn) = value
             End Set
         End Property
         
@@ -707,10 +708,10 @@ Partial Public Class WinterSportsDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Property City() As String
             Get
-                Return CType(Me(Me.tableCustInfo.CityColumn),String)
+                Return CType(Me(Me.tableCustomers.CityColumn),String)
             End Get
             Set
-                Me(Me.tableCustInfo.CityColumn) = value
+                Me(Me.tableCustomers.CityColumn) = value
             End Set
         End Property
         
@@ -718,21 +719,21 @@ Partial Public Class WinterSportsDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Property State() As String
             Get
-                Return CType(Me(Me.tableCustInfo.StateColumn),String)
+                Return CType(Me(Me.tableCustomers.StateColumn),String)
             End Get
             Set
-                Me(Me.tableCustInfo.StateColumn) = value
+                Me(Me.tableCustomers.StateColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property ZipCode() As Integer
+        Public Property ZipCode() As String
             Get
-                Return CType(Me(Me.tableCustInfo.ZipCodeColumn),Integer)
+                Return CType(Me(Me.tableCustomers.ZipCodeColumn),String)
             End Get
             Set
-                Me(Me.tableCustInfo.ZipCodeColumn) = value
+                Me(Me.tableCustomers.ZipCodeColumn) = value
             End Set
         End Property
         
@@ -740,10 +741,10 @@ Partial Public Class WinterSportsDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Property Phone() As String
             Get
-                Return CType(Me(Me.tableCustInfo.PhoneColumn),String)
+                Return CType(Me(Me.tableCustomers.PhoneColumn),String)
             End Get
             Set
-                Me(Me.tableCustInfo.PhoneColumn) = value
+                Me(Me.tableCustomers.PhoneColumn) = value
             End Set
         End Property
     End Class
@@ -752,16 +753,16 @@ Partial Public Class WinterSportsDataSet
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-    Public Class CustInfoRowChangeEvent
+    Public Class CustomersRowChangeEvent
         Inherits Global.System.EventArgs
         
-        Private eventRow As CustInfoRow
+        Private eventRow As CustomersRow
         
         Private eventAction As Global.System.Data.DataRowAction
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub New(ByVal row As CustInfoRow, ByVal action As Global.System.Data.DataRowAction)
+        Public Sub New(ByVal row As CustomersRow, ByVal action As Global.System.Data.DataRowAction)
             MyBase.New
             Me.eventRow = row
             Me.eventAction = action
@@ -769,7 +770,7 @@ Partial Public Class WinterSportsDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property Row() As CustInfoRow
+        Public ReadOnly Property Row() As CustomersRow
             Get
                 Return Me.eventRow
             End Get
@@ -796,7 +797,7 @@ Namespace WinterSportsDataSetTableAdapters
      Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
      Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-    Partial Public Class CustInfoTableAdapter
+    Partial Public Class CustomersTableAdapter
         Inherits Global.System.ComponentModel.Component
         
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
@@ -913,7 +914,7 @@ Namespace WinterSportsDataSetTableAdapters
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
             tableMapping.SourceTable = "Table"
-            tableMapping.DataSetTable = "CustInfo"
+            tableMapping.DataSetTable = "Customers"
             tableMapping.ColumnMappings.Add("CustID", "CustID")
             tableMapping.ColumnMappings.Add("FirstName", "FirstName")
             tableMapping.ColumnMappings.Add("LastName", "LastName")
@@ -925,11 +926,11 @@ Namespace WinterSportsDataSetTableAdapters
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[CustInfo] WHERE (([CustID] = @Original_CustID) AND ([FirstName"& _ 
-                "] = @Original_FirstName) AND ([LastName] = @Original_LastName) AND ([StreetAddre"& _ 
-                "ss] = @Original_StreetAddress) AND ([City] = @Original_City) AND ([State] = @Ori"& _ 
-                "ginal_State) AND ([ZipCode] = @Original_ZipCode) AND ([Phone] = @Original_Phone)"& _ 
-                ")"
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Customers] WHERE (([CustID] = @Original_CustID) AND ([FirstNam"& _ 
+                "e] = @Original_FirstName) AND ([LastName] = @Original_LastName) AND ([StreetAddr"& _ 
+                "ess] = @Original_StreetAddress) AND ([City] = @Original_City) AND ([State] = @Or"& _ 
+                "iginal_State) AND ([ZipCode] = @Original_ZipCode) AND ([Phone] = @Original_Phone"& _ 
+                "))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CustID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CustID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_FirstName", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FirstName", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
@@ -937,39 +938,38 @@ Namespace WinterSportsDataSetTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_StreetAddress", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "StreetAddress", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_City", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "City", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_State", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "State", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ZipCode", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ZipCode", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ZipCode", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ZipCode", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Phone", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Phone", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[CustInfo] ([FirstName], [LastName], [StreetAddress], [City], ["& _ 
-                "State], [ZipCode], [Phone]) VALUES (@FirstName, @LastName, @StreetAddress, @City"& _ 
-                ", @State, @ZipCode, @Phone);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT CustID, FirstName, LastName, StreetAddress,"& _ 
-                " City, State, ZipCode, Phone FROM CustInfo WHERE (CustID = SCOPE_IDENTITY())"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Customers] ([FirstName], [LastName], [StreetAddress], [City], "& _ 
+                "[State], [ZipCode], [Phone]) VALUES (@FirstName, @LastName, @StreetAddress, @Cit"& _ 
+                "y, @State, @ZipCode, @Phone);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT CustID, FirstName, LastName, StreetAddress"& _ 
+                ", City, State, ZipCode, Phone FROM Customers WHERE (CustID = SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FirstName", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FirstName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@LastName", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "LastName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@StreetAddress", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "StreetAddress", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@City", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "City", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@State", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "State", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ZipCode", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ZipCode", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ZipCode", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ZipCode", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Phone", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Phone", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[CustInfo] SET [FirstName] = @FirstName, [LastName] = @LastName, [St"& _ 
-                "reetAddress] = @StreetAddress, [City] = @City, [State] = @State, [ZipCode] = @Zi"& _ 
-                "pCode, [Phone] = @Phone WHERE (([CustID] = @Original_CustID) AND ([FirstName] = "& _ 
-                "@Original_FirstName) AND ([LastName] = @Original_LastName) AND ([StreetAddress] "& _ 
-                "= @Original_StreetAddress) AND ([City] = @Original_City) AND ([State] = @Origina"& _ 
-                "l_State) AND ([ZipCode] = @Original_ZipCode) AND ([Phone] = @Original_Phone));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)& _ 
-                "SELECT CustID, FirstName, LastName, StreetAddress, City, State, ZipCode, Phone F"& _ 
-                "ROM CustInfo WHERE (CustID = @CustID)"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Customers] SET [FirstName] = @FirstName, [LastName] = @LastName, [S"& _ 
+                "treetAddress] = @StreetAddress, [City] = @City, [State] = @State, [ZipCode] = @Z"& _ 
+                "ipCode, [Phone] = @Phone WHERE (([CustID] = @Original_CustID) AND ([FirstName] ="& _ 
+                " @Original_FirstName) AND ([LastName] = @Original_LastName) AND ([StreetAddress]"& _ 
+                " = @Original_StreetAddress) AND ([City] = @Original_City) AND ([State] = @Origin"& _ 
+                "al_State) AND ([ZipCode] = @Original_ZipCode) AND ([Phone] = @Original_Phone));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT CustID, FirstName, LastName, StreetAddress, City, State, ZipCode, Phone "& _ 
+                "FROM Customers WHERE (CustID = @CustID)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FirstName", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FirstName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@LastName", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "LastName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@StreetAddress", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "StreetAddress", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@City", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "City", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@State", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "State", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ZipCode", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ZipCode", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ZipCode", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ZipCode", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Phone", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Phone", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CustID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CustID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_FirstName", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FirstName", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
@@ -977,7 +977,7 @@ Namespace WinterSportsDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_StreetAddress", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "StreetAddress", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_City", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "City", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_State", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "State", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ZipCode", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ZipCode", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ZipCode", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ZipCode", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Phone", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Phone", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CustID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "CustID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
@@ -992,19 +992,31 @@ Namespace WinterSportsDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(2) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT CustID, FirstName, LastName, StreetAddress, City, State, ZipCode, Phone FR"& _ 
-                "OM dbo.CustInfo"
+                "OM dbo.Customers"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(1).Connection = Me.Connection
+            Me._commandCollection(1).CommandText = "SELECT        CustID, FirstName, LastName, StreetAddress, City, State, ZipCode, P"& _ 
+                "hone"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Customers"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (CustID = @CustID)"
+            Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CustID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "CustID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(2).Connection = Me.Connection
+            Me._commandCollection(2).CommandText = "SELECT        CustID, FirstName, LastName, StreetAddress, City, State, ZipCode, P"& _ 
+                "hone"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Customers"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (LastName = @LastName)"
+            Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@LastName", Global.System.Data.SqlDbType.VarChar, 15, Global.System.Data.ParameterDirection.Input, 0, 0, "LastName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As WinterSportsDataSet.CustInfoDataTable) As Integer
+        Public Overloads Overridable Function Fill(ByVal dataTable As WinterSportsDataSet.CustomersDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
@@ -1017,9 +1029,69 @@ Namespace WinterSportsDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As WinterSportsDataSet.CustInfoDataTable
+        Public Overloads Overridable Function GetData() As WinterSportsDataSet.CustomersDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Dim dataTable As WinterSportsDataSet.CustInfoDataTable = New WinterSportsDataSet.CustInfoDataTable()
+            Dim dataTable As WinterSportsDataSet.CustomersDataTable = New WinterSportsDataSet.CustomersDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillByCustID(ByVal dataTable As WinterSportsDataSet.CustomersDataTable, ByVal CustID As Integer) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(CustID,Integer)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataByCustID(ByVal CustID As Integer) As WinterSportsDataSet.CustomersDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(CustID,Integer)
+            Dim dataTable As WinterSportsDataSet.CustomersDataTable = New WinterSportsDataSet.CustomersDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillByLastName(ByVal dataTable As WinterSportsDataSet.CustomersDataTable, ByVal LastName As String) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(2)
+            If (LastName Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("LastName")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(LastName,String)
+            End If
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataByLastName(ByVal LastName As String) As WinterSportsDataSet.CustomersDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(2)
+            If (LastName Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("LastName")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(LastName,String)
+            End If
+            Dim dataTable As WinterSportsDataSet.CustomersDataTable = New WinterSportsDataSet.CustomersDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
@@ -1027,7 +1099,7 @@ Namespace WinterSportsDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataTable As WinterSportsDataSet.CustInfoDataTable) As Integer
+        Public Overloads Overridable Function Update(ByVal dataTable As WinterSportsDataSet.CustomersDataTable) As Integer
             Return Me.Adapter.Update(dataTable)
         End Function
         
@@ -1035,7 +1107,7 @@ Namespace WinterSportsDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
         Public Overloads Overridable Function Update(ByVal dataSet As WinterSportsDataSet) As Integer
-            Return Me.Adapter.Update(dataSet, "CustInfo")
+            Return Me.Adapter.Update(dataSet, "Customers")
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1056,7 +1128,7 @@ Namespace WinterSportsDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_CustID As Integer, ByVal Original_FirstName As String, ByVal Original_LastName As String, ByVal Original_StreetAddress As String, ByVal Original_City As String, ByVal Original_State As String, ByVal Original_ZipCode As Integer, ByVal Original_Phone As String) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_CustID As Integer, ByVal Original_FirstName As String, ByVal Original_LastName As String, ByVal Original_StreetAddress As String, ByVal Original_City As String, ByVal Original_State As String, ByVal Original_ZipCode As String, ByVal Original_Phone As String) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_CustID,Integer)
             If (Original_FirstName Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_FirstName")
@@ -1083,7 +1155,11 @@ Namespace WinterSportsDataSetTableAdapters
             Else
                 Me.Adapter.DeleteCommand.Parameters(5).Value = CType(Original_State,String)
             End If
-            Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_ZipCode,Integer)
+            If (Original_ZipCode Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_ZipCode")
+            Else
+                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_ZipCode,String)
+            End If
             If (Original_Phone Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_Phone")
             Else
@@ -1108,7 +1184,7 @@ Namespace WinterSportsDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal FirstName As String, ByVal LastName As String, ByVal StreetAddress As String, ByVal City As String, ByVal State As String, ByVal ZipCode As Integer, ByVal Phone As String) As Integer
+        Public Overloads Overridable Function Insert(ByVal FirstName As String, ByVal LastName As String, ByVal StreetAddress As String, ByVal City As String, ByVal State As String, ByVal ZipCode As String, ByVal Phone As String) As Integer
             If (FirstName Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("FirstName")
             Else
@@ -1134,7 +1210,11 @@ Namespace WinterSportsDataSetTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(4).Value = CType(State,String)
             End If
-            Me.Adapter.InsertCommand.Parameters(5).Value = CType(ZipCode,Integer)
+            If (ZipCode Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("ZipCode")
+            Else
+                Me.Adapter.InsertCommand.Parameters(5).Value = CType(ZipCode,String)
+            End If
             If (Phone Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Phone")
             Else
@@ -1165,7 +1245,7 @@ Namespace WinterSportsDataSetTableAdapters
                     ByVal StreetAddress As String,  _
                     ByVal City As String,  _
                     ByVal State As String,  _
-                    ByVal ZipCode As Integer,  _
+                    ByVal ZipCode As String,  _
                     ByVal Phone As String,  _
                     ByVal Original_CustID As Integer,  _
                     ByVal Original_FirstName As String,  _
@@ -1173,7 +1253,7 @@ Namespace WinterSportsDataSetTableAdapters
                     ByVal Original_StreetAddress As String,  _
                     ByVal Original_City As String,  _
                     ByVal Original_State As String,  _
-                    ByVal Original_ZipCode As Integer,  _
+                    ByVal Original_ZipCode As String,  _
                     ByVal Original_Phone As String,  _
                     ByVal CustID As Integer) As Integer
             If (FirstName Is Nothing) Then
@@ -1201,7 +1281,11 @@ Namespace WinterSportsDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(4).Value = CType(State,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(5).Value = CType(ZipCode,Integer)
+            If (ZipCode Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("ZipCode")
+            Else
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(ZipCode,String)
+            End If
             If (Phone Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Phone")
             Else
@@ -1233,7 +1317,11 @@ Namespace WinterSportsDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_State,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_ZipCode,Integer)
+            If (Original_ZipCode Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_ZipCode")
+            Else
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_ZipCode,String)
+            End If
             If (Original_Phone Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_Phone")
             Else
@@ -1259,7 +1347,7 @@ Namespace WinterSportsDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal FirstName As String, ByVal LastName As String, ByVal StreetAddress As String, ByVal City As String, ByVal State As String, ByVal ZipCode As Integer, ByVal Phone As String, ByVal Original_CustID As Integer, ByVal Original_FirstName As String, ByVal Original_LastName As String, ByVal Original_StreetAddress As String, ByVal Original_City As String, ByVal Original_State As String, ByVal Original_ZipCode As Integer, ByVal Original_Phone As String) As Integer
+        Public Overloads Overridable Function Update(ByVal FirstName As String, ByVal LastName As String, ByVal StreetAddress As String, ByVal City As String, ByVal State As String, ByVal ZipCode As String, ByVal Phone As String, ByVal Original_CustID As Integer, ByVal Original_FirstName As String, ByVal Original_LastName As String, ByVal Original_StreetAddress As String, ByVal Original_City As String, ByVal Original_State As String, ByVal Original_ZipCode As String, ByVal Original_Phone As String) As Integer
             Return Me.Update(FirstName, LastName, StreetAddress, City, State, ZipCode, Phone, Original_CustID, Original_FirstName, Original_LastName, Original_StreetAddress, Original_City, Original_State, Original_ZipCode, Original_Phone, Original_CustID)
         End Function
     End Class
@@ -1277,7 +1365,7 @@ Namespace WinterSportsDataSetTableAdapters
         
         Private _updateOrder As UpdateOrderOption
         
-        Private _custInfoTableAdapter As CustInfoTableAdapter
+        Private _customersTableAdapter As CustomersTableAdapter
         
         Private _backupDataSetBeforeUpdate As Boolean
         
@@ -1299,12 +1387,12 @@ Namespace WinterSportsDataSetTableAdapters
          Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3"& _ 
             "a", "System.Drawing.Design.UITypeEditor")>  _
-        Public Property CustInfoTableAdapter() As CustInfoTableAdapter
+        Public Property CustomersTableAdapter() As CustomersTableAdapter
             Get
-                Return Me._custInfoTableAdapter
+                Return Me._customersTableAdapter
             End Get
             Set
-                Me._custInfoTableAdapter = value
+                Me._customersTableAdapter = value
             End Set
         End Property
         
@@ -1327,9 +1415,9 @@ Namespace WinterSportsDataSetTableAdapters
                 If (Not (Me._connection) Is Nothing) Then
                     Return Me._connection
                 End If
-                If ((Not (Me._custInfoTableAdapter) Is Nothing)  _
-                            AndAlso (Not (Me._custInfoTableAdapter.Connection) Is Nothing)) Then
-                    Return Me._custInfoTableAdapter.Connection
+                If ((Not (Me._customersTableAdapter) Is Nothing)  _
+                            AndAlso (Not (Me._customersTableAdapter.Connection) Is Nothing)) Then
+                    Return Me._customersTableAdapter.Connection
                 End If
                 Return Nothing
             End Get
@@ -1344,7 +1432,7 @@ Namespace WinterSportsDataSetTableAdapters
         Public ReadOnly Property TableAdapterInstanceCount() As Integer
             Get
                 Dim count As Integer = 0
-                If (Not (Me._custInfoTableAdapter) Is Nothing) Then
+                If (Not (Me._customersTableAdapter) Is Nothing) Then
                     count = (count + 1)
                 End If
                 Return count
@@ -1358,12 +1446,12 @@ Namespace WinterSportsDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Function UpdateUpdatedRows(ByVal dataSet As WinterSportsDataSet, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow), ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
-            If (Not (Me._custInfoTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.CustInfo.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+            If (Not (Me._customersTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.Customers.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
                 If ((Not (updatedRows) Is Nothing)  _
                             AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._custInfoTableAdapter.Update(updatedRows))
+                    result = (result + Me._customersTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
@@ -1377,11 +1465,11 @@ Namespace WinterSportsDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Function UpdateInsertedRows(ByVal dataSet As WinterSportsDataSet, ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
-            If (Not (Me._custInfoTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.CustInfo.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+            If (Not (Me._customersTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.Customers.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
                             AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._custInfoTableAdapter.Update(addedRows))
+                    result = (result + Me._customersTableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
@@ -1395,11 +1483,11 @@ Namespace WinterSportsDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Function UpdateDeletedRows(ByVal dataSet As WinterSportsDataSet, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
-            If (Not (Me._custInfoTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.CustInfo.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+            If (Not (Me._customersTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.Customers.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._custInfoTableAdapter.Update(deletedRows))
+                    result = (result + Me._customersTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
@@ -1444,8 +1532,8 @@ Namespace WinterSportsDataSetTableAdapters
             If (dataSet.HasChanges = false) Then
                 Return 0
             End If
-            If ((Not (Me._custInfoTableAdapter) Is Nothing)  _
-                        AndAlso (Me.MatchTableAdapterConnection(Me._custInfoTableAdapter.Connection) = false)) Then
+            If ((Not (Me._customersTableAdapter) Is Nothing)  _
+                        AndAlso (Me.MatchTableAdapterConnection(Me._customersTableAdapter.Connection) = false)) Then
                 Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s"& _ 
                         "tring.")
             End If
@@ -1481,13 +1569,13 @@ Namespace WinterSportsDataSetTableAdapters
             Try 
                 '---- Prepare for update -----------
                 '
-                If (Not (Me._custInfoTableAdapter) Is Nothing) Then
-                    revertConnections.Add(Me._custInfoTableAdapter, Me._custInfoTableAdapter.Connection)
-                    Me._custInfoTableAdapter.Connection = CType(workConnection,Global.System.Data.SqlClient.SqlConnection)
-                    Me._custInfoTableAdapter.Transaction = CType(workTransaction,Global.System.Data.SqlClient.SqlTransaction)
-                    If Me._custInfoTableAdapter.Adapter.AcceptChangesDuringUpdate Then
-                        Me._custInfoTableAdapter.Adapter.AcceptChangesDuringUpdate = false
-                        adaptersWithAcceptChangesDuringUpdate.Add(Me._custInfoTableAdapter.Adapter)
+                If (Not (Me._customersTableAdapter) Is Nothing) Then
+                    revertConnections.Add(Me._customersTableAdapter, Me._customersTableAdapter.Connection)
+                    Me._customersTableAdapter.Connection = CType(workConnection,Global.System.Data.SqlClient.SqlConnection)
+                    Me._customersTableAdapter.Transaction = CType(workTransaction,Global.System.Data.SqlClient.SqlTransaction)
+                    If Me._customersTableAdapter.Adapter.AcceptChangesDuringUpdate Then
+                        Me._customersTableAdapter.Adapter.AcceptChangesDuringUpdate = false
+                        adaptersWithAcceptChangesDuringUpdate.Add(Me._customersTableAdapter.Adapter)
                     End If
                 End If
                 '
@@ -1550,9 +1638,9 @@ Namespace WinterSportsDataSetTableAdapters
                 If workConnOpened Then
                     workConnection.Close
                 End If
-                If (Not (Me._custInfoTableAdapter) Is Nothing) Then
-                    Me._custInfoTableAdapter.Connection = CType(revertConnections(Me._custInfoTableAdapter),Global.System.Data.SqlClient.SqlConnection)
-                    Me._custInfoTableAdapter.Transaction = Nothing
+                If (Not (Me._customersTableAdapter) Is Nothing) Then
+                    Me._customersTableAdapter.Connection = CType(revertConnections(Me._customersTableAdapter),Global.System.Data.SqlClient.SqlConnection)
+                    Me._customersTableAdapter.Transaction = Nothing
                 End If
                 If (0 < adaptersWithAcceptChangesDuringUpdate.Count) Then
                     Dim adapters((adaptersWithAcceptChangesDuringUpdate.Count) - 1) As Global.System.Data.Common.DataAdapter

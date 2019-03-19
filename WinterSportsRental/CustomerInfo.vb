@@ -1,35 +1,67 @@
-﻿Public Class frmCustomer
-    Private Sub btnCheckout_Click(sender As Object, e As EventArgs) Handles btnCheckout.Click
+﻿' Name:
+' Purpose:
+' Programmer:
 
-        Dim strName As String = txtName.Text.ToString.Trim
-        Dim strAddress As String = txtAddress.Text.ToString.Trim
-        Dim strCity As String = txtCity.Text.ToString.Trim
-        Dim strState As String = txtState.Text.ToString.Trim
-        Dim strZip As String = txtZip.Text.ToString.Trim
-        Dim strPhone As String = txtPhone.Text.ToString.Trim
-        Dim strCardNum As String = txtCardNum.Text.ToString.Trim
+Option Explicit On
+Option Strict On
+Option Infer Off
 
-        Dim cust As New Customer(strName, strAddress, strCity, strState, strZip,
-                                  strPhone, strCardNum)
+Public Class frmCustInfo
+    Private Sub frmCustInfo_Load(sender As Object, e As EventArgs) Handles Me.Load
+        ' Set radio button and group box defaults
 
-        Dim ofCustomerInfo As IO.StreamWriter
-        ofCustomerInfo = IO.File.AppendText("customerInfo.txt")
-
-        ofCustomerInfo.WriteLine(strName)
-        ofCustomerInfo.WriteLine(strAddress)
-        ofCustomerInfo.WriteLine(strCity & " " & strState & ", " & strZip)
-        ofCustomerInfo.WriteLine(strPhone)
-        ofCustomerInfo.WriteLine(strCardNum)
-        ofCustomerInfo.WriteLine()
-        ofCustomerInfo.Close()
-
-        frmSummary.Show()
+        radExistCust.Checked = True
+        radNewCust.Checked = False
+        boxCustSearch.Visible = True
+        boxNewCust.Visible = False
 
     End Sub
 
-    Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
+    Private Sub btnNameSearch_Click(sender As Object, e As EventArgs) Handles btnNameSearch.Click
+        ' Search query database by last name using input box
 
-        Me.Close()
+        Dim strName As String
+        strName = InputBox("Enter customer's last name and click OK. Click canccel to close this dialog.",
+                           "Last Name Search").Trim
+
+        CustomersTableAdapter.FillByLastName(WinterSportsDataSet.Customers, strName)
+
+    End Sub
+
+    Private Sub btnIDSearch_Click(sender As Object, e As EventArgs) Handles btnIDSearch.Click
+        ' Search query database by cust ID using input box
+
+        Dim intCustID As Integer
+        Integer.TryParse(InputBox("Enter customer ID and click OK.", "Customer ID Search").Trim, intCustID)
+
+        CustomersTableAdapter.FillByCustID(WinterSportsDataSet.Customers, intCustID)
+    End Sub
+
+    Private Sub radNewCust_CheckedChanged(sender As Object, e As EventArgs) Handles radNewCust.CheckedChanged
+
+        If radNewCust.Checked = True Then
+
+            boxNewCust.Visible = True
+            boxCustSearch.Visible = False
+        Else
+            boxNewCust.Visible = False
+            boxCustSearch.Visible = True
+
+        End If
+    End Sub
+
+    Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
+
+        Try
+            Me.Validate()
+            Me.CustomersBindingSource.EndEdit()
+            Me.TableAdapterManager.UpdateAll(Me.WinterSportsDataSet)
+            MessageBox.Show("Customer added to database.", "New Customer",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "New Customer",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End Try
 
     End Sub
 End Class

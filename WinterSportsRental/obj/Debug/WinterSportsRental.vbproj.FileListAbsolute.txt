@@ -4,7 +4,6 @@ D:\morri\Projects\Visual Studio 2017\Projects\WinterSportsRental\WinterSportsRen
 D:\morri\Projects\Visual Studio 2017\Projects\WinterSportsRental\WinterSportsRental\bin\Debug\WinterSportsRental.xml
 D:\morri\Projects\Visual Studio 2017\Projects\WinterSportsRental\WinterSportsRental\obj\Debug\WinterSportsRental.vbprojAssemblyReference.cache
 D:\morri\Projects\Visual Studio 2017\Projects\WinterSportsRental\WinterSportsRental\obj\Debug\WinterSportsRental.frmBrowser.resources
-D:\morri\Projects\Visual Studio 2017\Projects\WinterSportsRental\WinterSportsRental\obj\Debug\WinterSportsRental.frmCustomer.resources
 D:\morri\Projects\Visual Studio 2017\Projects\WinterSportsRental\WinterSportsRental\obj\Debug\WinterSportsRental.frmRental.resources
 D:\morri\Projects\Visual Studio 2017\Projects\WinterSportsRental\WinterSportsRental\obj\Debug\WinterSportsRental.Resources.resources
 D:\morri\Projects\Visual Studio 2017\Projects\WinterSportsRental\WinterSportsRental\obj\Debug\WinterSportsRental.frmSummary.resources
@@ -13,3 +12,6 @@ D:\morri\Projects\Visual Studio 2017\Projects\WinterSportsRental\WinterSportsRen
 D:\morri\Projects\Visual Studio 2017\Projects\WinterSportsRental\WinterSportsRental\obj\Debug\WinterSportsRental.exe
 D:\morri\Projects\Visual Studio 2017\Projects\WinterSportsRental\WinterSportsRental\obj\Debug\WinterSportsRental.xml
 D:\morri\Projects\Visual Studio 2017\Projects\WinterSportsRental\WinterSportsRental\obj\Debug\WinterSportsRental.pdb
+D:\morri\Projects\Visual Studio 2017\Projects\WinterSportsRental\WinterSportsRental\bin\Debug\WinterSports.mdf
+D:\morri\Projects\Visual Studio 2017\Projects\WinterSportsRental\WinterSportsRental\bin\Debug\WinterSports_log.ldf
+D:\morri\Projects\Visual Studio 2017\Projects\WinterSportsRental\WinterSportsRental\obj\Debug\WinterSportsRental.frmCustInfo.resources

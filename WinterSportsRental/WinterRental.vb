@@ -9,6 +9,7 @@ Option Infer Off
 
 Public Class frmRental
     ' Rental prices parallel to equipment() and duration(); Row=equipment(index), Col=duration(index)
+
     Dim equipPrices(,) As Double = {{56.99, 113.98, 170.97, 341.94, 683.88},
                                        {48.99, 97.98, 146.97, 293.94, 587.88},
                                        {32.99, 65.98, 98.97, 197.94, 395.88},
@@ -71,36 +72,9 @@ Public Class frmRental
 
     End Sub
 
-    Private Sub btnContinue_Click(sender As Object, e As EventArgs) Handles btnContinue.Click
-        ' Checks if chkWaiver is checked; throws message box if false
-        If chkWaiver.Checked = True Then
-            frmCustomer.Show()
-        Else
-            MessageBox.Show("Liability Waiver must be signed before continuing.", "Winter Sports Rental",
-                            MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End If
-
-
-    End Sub
-
     Private Sub lnkWeather_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles lnkWeather.LinkClicked
 
         frmBrowser.Show()
-
-    End Sub
-
-    Private Sub clbEquipment_SelectedIndexChanged(sender As Object, e As EventArgs) Handles clbEquipment.SelectedIndexChanged,
-            cmbDuration.SelectedIndexChanged, chkInsurance.CheckedChanged
-
-        ' Calculates and displays a running subtotal based on current selections
-        If clbEquipment.CheckedItems.Count > 0 AndAlso cmbDuration.SelectedIndex >= 0 Then
-            If chkInsurance.Checked = True Then
-                lblSubTotal.Text = (GetSubTotal() + GetInsurance()).ToString("C2")
-            Else
-                lblSubTotal.Text = GetSubTotal().ToString("C2")
-            End If
-
-        End If
 
     End Sub
 
@@ -110,6 +84,66 @@ Public Class frmRental
         FillCheckLists()
         chkInsurance.Checked = False
         chkWaiver.Checked = False
+        lblDepError.Visible = False
+        txtDeposit.Text = String.Empty
+        lblSubTotal.Text = String.Empty
+        lblTax.Text = String.Empty
+        lblInsurance.Text = String.Empty
+        lblLessDep.Text = String.Empty
+        lblBalance.Text = String.Empty
 
+    End Sub
+
+    Private Sub btnSnap_Click(sender As Object, e As EventArgs) Handles btnSnap.Click
+
+        Dim dblDeposit As Double
+        Dim dblBalance As Double
+        Dim dblMinDep_Req As Double
+        Double.TryParse(txtDeposit.Text.Trim, dblDeposit)
+
+        Select Case chkInsurance.Checked
+            Case True
+                dblMinDep_Req = 0.1 * (GetSubTotal() + GetTax() + GetInsurance())
+                lblSubTotal.Text = GetSubTotal().ToString("C2")
+                lblTax.Text = GetTax().ToString("C2")
+                lblInsurance.Text = GetInsurance().ToString("C2")
+                If dblDeposit >= dblMinDep_Req Then
+                    lblDepError.Visible = False
+                    lblLessDep.Text = dblDeposit.ToString("C2")
+                    dblBalance = (GetSubTotal() + GetTax() + GetInsurance()) - dblDeposit
+                    lblBalance.Text = dblBalance.ToString("C2")
+                Else
+                    lblDepError.Text = "A minimum deposit of " & dblMinDep_Req.ToString("C2") & " is required."
+                    lblDepError.Visible = True
+                End If
+            Case False
+                dblMinDep_Req = 0.1 * (GetSubTotal() + GetTax())
+                lblSubTotal.Text = GetSubTotal().ToString("C2")
+                lblTax.Text = GetTax().ToString("C2")
+                If dblDeposit >= dblMinDep_Req Then
+                    lblDepError.Visible = False
+                    lblLessDep.Text = dblDeposit.ToString("C2")
+                    dblBalance = (GetSubTotal() + GetTax()) - dblDeposit
+                    lblBalance.Text = dblBalance.ToString("C2")
+                Else
+                    lblDepError.Text = "A minimum deposit of " & dblMinDep_Req.ToString("C2") & " is required."
+                    lblDepError.Visible = True
+                End If
+        End Select
+    End Sub
+
+    Private Sub btnContinue_Click(sender As Object, e As EventArgs) Handles btnContinue.Click
+        If chkWaiver.Checked = True And lblDepError.Visible = False Then
+            frmCustInfo.Show()
+        Else
+            If chkWaiver.Checked = False Then
+                MessageBox.Show("Liability Waiver must be signed before continuing.", "Liabilty Waiver",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information)
+            End If
+        End If
+    End Sub
+
+    Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
+        Me.Close()
     End Sub
 End Class
